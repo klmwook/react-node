@@ -9,7 +9,7 @@ function Create() {
 	const handleCreate = () => {
 		const item = { title: Tit, content: Con };
 		axios
-			.post('/api/create', item)
+			.post('/api/community/create', item)
 			.then((res) => {
 				console.log(res);
 				alert('글 저장에 성공했습니다.');
@@ -21,8 +21,6 @@ function Create() {
 				alert('글 저장에 실패했습니다.');
 			});
 	};
-
-	useEffect(() => {}, []);
 
 	return (
 		<Layout name={'Post'}>

@@ -7,7 +7,7 @@ function List() {
 	const [Posts, setPosts] = useState([]);
 
 	useEffect(() => {
-		axios.post('/api/read').then((res) => {
+		axios.get('/api/community/read').then((res) => {
 			console.log(res);
 			setPosts(res.data.communityList);
 		});
@@ -17,7 +17,9 @@ function List() {
 			{Posts.map((post) => {
 				return (
 					<article key={post._id}>
-						<Link to={`/detail/${post.communityNum}`}>{post.title}</Link>
+						<h2>
+							<Link to={`/detail/${post.communityNum}`}>{post.title}</Link>
+						</h2>
 					</article>
 				);
 			})}
