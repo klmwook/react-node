@@ -1,11 +1,19 @@
-import axios from 'axios';
 import Layout from '../common/Layout';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import { useEffect, useState } from 'react';
+import styled from 'styled-components';
+
+const DetailWrap = styled.div`
+	width: 100%;
+	padding: 40px;
+	background: #fff;
+	box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.02);
+`;
 
 function Detail() {
 	const params = useParams();
-	const [Detail, setDetail] = useState('');
+	const [Detail, setDetail] = useState(null);
 
 	useEffect(() => {
 		axios
@@ -14,18 +22,18 @@ function Detail() {
 				if (res.data.success) {
 					setDetail(res.data.detail);
 				} else {
-					alert('상세 글 호출에 실패 하였습니다.');
+					alert('상세글 호출에 실패했습니다.');
 				}
 			})
-			.catch((err) => {
-				console.log(err);
-			});
+			.catch((err) => console.log(err));
 	}, []);
 
 	return (
 		<Layout name={'Detail'}>
-			<h2>{Detail?.title}</h2>
-			<p>{Detail?.content}</p>
+			<DetailWrap>
+				<h2>{Detail?.title}</h2>
+				<p>{Detail?.content}</p>
+			</DetailWrap>
 		</Layout>
 	);
 }
