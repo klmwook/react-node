@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 const postShema = new mongoose.Schema({
 	title: String,
 	content: String,
+	communityNum: Number,
 });
 
 //게시글 스키마구조가 적용된 모델 생성자를 만든뒤 export
