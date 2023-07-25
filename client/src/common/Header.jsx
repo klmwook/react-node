@@ -65,7 +65,7 @@ function Header() {
 				</li>
 			</Gnb>
 
-			<ul>
+			<Util>
 				<li>
 					<NavLink to='/login' style={(props) => (props.isActive ? activeStyle : null)}>
 						Login
@@ -76,7 +76,7 @@ function Header() {
 						Join
 					</NavLink>
 				</li>
-			</ul>
+			</Util>
 		</HeaderWrap>
 	);
 }
