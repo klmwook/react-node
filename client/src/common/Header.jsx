@@ -31,6 +31,21 @@ function Header() {
 		}
 	`;
 
+	const Util = styled.ul`
+		position: absolute;
+		bottom: 50px;
+		left: 50px;
+		display: flex;
+		gap: 20px;
+
+		li {
+			a {
+				font: 14px/1 'arial';
+				color: #555;
+			}
+		}
+	`;
+
 	return (
 		<HeaderWrap>
 			<Logo>
@@ -49,6 +64,19 @@ function Header() {
 					</NavLink>
 				</li>
 			</Gnb>
+
+			<ul>
+				<li>
+					<NavLink to='/login' style={(props) => (props.isActive ? activeStyle : null)}>
+						Login
+					</NavLink>
+				</li>
+				<li>
+					<NavLink to='/join' style={(props) => (props.isActive ? activeStyle : null)}>
+						Join
+					</NavLink>
+				</li>
+			</ul>
 		</HeaderWrap>
 	);
 }
